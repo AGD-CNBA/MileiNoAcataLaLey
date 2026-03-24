@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Análisis del impacto económico de la inflación: transferencia de $21 billones anuales">
+    <title>Impacto Económico: inflación</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mobile-styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">El costo de los retrocesos</p>
+            <h1 class="hero-title">Reforma Laboral</h1>
+            <p class="hero-description">
+                Análisis del impacto económico de los retrocesos laborales propuestos
+            </p>
+        </div>
+        <button class="scroll-btn" aria-label="Ver análisis">
+            <span>↓</span>
+        </button>
+    </header>
+
+    <main>
+        <!-- Métrica Principal -->
+        <section class="section metric-section">
+            <div class="container">
+                <h2 class="metric-label">Transferencia Total</h2>
+                <p class="metric-value">$21 billones/año</p>
+                <p class="metric-desc">
+                    Todas las medidas combinadas transfieren <strong>21 billones de pesos anuales</strong> 
+                    desde trabajadores hacia patronal.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Información del Proyecto de Ley -->
+        <section class="section" style="background: var(--bg-dark); padding: 2rem 0;">
+            <div class="container">
+                <div style="background: linear-gradient(135deg, rgba(230, 57, 70, 0.1) 0%, rgba(230, 57, 70, 0.05) 100%); border-left: 4px solid var(--accent); padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="margin: 0 0 1rem 0; color: var(--text-light);">📄 Proyecto de Ley Oficial</h3>
+                    <p style="margin: 0 0 1rem 0; color: var(--text-gray);">
+                        Los 12 retrocesos analizados se basan en el texto oficial del Proyecto de Ley de Modernización Laboral.
+                    </p>
+                    <a href="https://www.argentina.gob.ar/sites/default/files/proyecto_de_ley_de_modernizacion_laboral._vf.pdf" 
+                       target="_blank" 
+                       style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--accent); color: var(--bg-dark); text-decoration: none; border-radius: 4px; font-weight: 600; transition: all 0.3s ease;">
+                        Ver Proyecto de Ley (PDF) →
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Retrocesos -->
+        <section class="section retrocesos-section">
+            <div class="container">
+                <h2 class="section-title">12 Retrocesos Principales</h2>
+                <p style="text-align: center; margin-bottom: 2rem; color: var(--text-gray);">
+                    <strong>Calculadora interactiva:</strong> Modificá los valores para explorar diferentes escenarios
+                </p>
+                
+                <article class="retroceso-card">
+                    <span class="card-num">01</span>
+                    <h3 class="card-title">Tope Indemnizatorio</h3>
+                    <p class="card-art">Artículo 245</p>
+                    <p class="card-desc">
+                        Límite de 3x promedio convenio + mínimo 67% salario real. Reduce hasta 50% indemnizaciones con mayor antigüedad.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_01" value="937500" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_01" value="2200000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_01">$2.06 billones</p>
+                        <p class="impact-calc" id="calc_01">937.500 trabajadores × $2.200.000</p>
+                    </div>
+                </article>
+
+                <article class="retroceso-card">
+                    <span class="card-num">02</span>
+                    <h3 class="card-title">Período de Prueba</h3>
+                    <p class="card-art">Artículo 231</p>
+                    <p class="card-desc">
+                        Eliminación de preaviso durante período de prueba. Desvinculación sin compensación.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_02" value="1500000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_02" value="550000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_02">$825.000 millones</p>
+                        <p class="impact-calc" id="calc_02">1.500.000 trabajadores × $550.000</p>
+                    </div>
+                </article>
+
+                <article class="retroceso-card">
+                    <span class="card-num">03</span>
+                    <h3 class="card-title">Presunción Laboral</h3>
+                    <p class="card-art">Artículo 23</p>
+                    <p class="card-desc">
+                        Se elimina presunción si hay factura. Facilita fraude laboral mediante falsas contrataciones como autónomos.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_03" value="800000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_03" value="3520000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_03">$2.82 billones</p>
+                        <p class="impact-calc" id="calc_03">800.000 trabajadores × $3.520.000</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">04</span>
+                    <h3 class="card-title">Solidaridad en Tercerización</h3>
+                    <p class="card-art">Artículo 30</p>
+                    <p class="card-desc">
+                        Se limita responsabilidad solidaria. Control previo exime al principal, aumenta incobrabilidad.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_04" value="600000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_04" value="2640000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_04">$1.58 billones</p>
+                        <p class="impact-calc" id="calc_04">600.000 trabajadores × $2.640.000</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">05</span>
+                    <h3 class="card-title">Empresas Relacionadas</h3>
+                    <p class="card-art">Artículo 31</p>
+                    <p class="card-desc">
+                        Solidaridad entre empresas del grupo solo si hay maniobras fraudulentas probadas.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_05" value="400000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_05" value="3080000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_05">$1.23 billones</p>
+                        <p class="impact-calc" id="calc_05">400.000 trabajadores × $3.080.000</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">06</span>
+                    <h3 class="card-title">Doble Indemnización Art. 80</h3>
+                    <p class="card-art">Artículo 246</p>
+                    <p class="card-desc">
+                        Se elimina agravamiento. Despido sin causa pasa de 2x a 1x, igualándolo con regularización.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_06" value="625000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_06" value="3080000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_06">$1.93 billones</p>
+                        <p class="impact-calc" id="calc_06">625.000 trabajadores × $3.080.000</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">07</span>
+                    <h3 class="card-title">Prueba Documental Patronal</h3>
+                    <p class="card-art">Artículo 55</p>
+                    <p class="card-desc">
+                        Libro especial del empleador como prueba privilegiada. Invierte carga probatoria en perjuicio del trabajador.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_07" value="1500000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_07" value="660000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_07">$990.000 billones</p>
+                        <p class="impact-calc" id="calc_07">1.500.000 trabajadores × $660.000</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">08</span>
+                    <h3 class="card-title">Banco de Horas</h3>
+                    <p class="card-art">Artículo 197 bis</p>
+                    <p class="card-desc">
+                        Compensación con francos en lugar de pago. Elimina plus 50-100% por horas extras.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_08" value="3750000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_08" value="660000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_08">$2.48 billones</p>
+                        <p class="impact-calc" id="calc_08">3.750.000 trabajadores × $660.000</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">09</span>
+                    <h3 class="card-title">Base de Cálculo Reducida</h3>
+                    <p class="card-art">Artículo 245</p>
+                    <p class="card-desc">
+                        Excluye SAC y conceptos no mensuales. Reduce 15-20% base de cálculo indemnización.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_09" value="3125000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_09" value="748000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_09">$2.34 billones</p>
+                        <p class="impact-calc" id="calc_09">3.125.000 trabajadores × $748.000</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">10</span>
+                    <h3 class="card-title">Reducción por Incapacidad</h3>
+                    <p class="card-art">Artículo 212</p>
+                    <p class="card-desc">
+                        Permite reducir salario y jornada por incapacidad parcial. Pérdida hasta 40% remuneración.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_10" value="750000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_10" value="1650000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_10">$1.24 billones</p>
+                        <p class="impact-calc" id="calc_10">750.000 trabajadores × $1.650.000</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">11</span>
+                    <h3 class="card-title">Vacaciones Fraccionadas</h3>
+                    <p class="card-art">Artículo 154</p>
+                    <p class="card-desc">
+                        Permite fraccionar en períodos de 7 días. Afecta calidad de descanso y desconexión.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_11" value="12500000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_11" value="27500" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_11">$343.750 billones</p>
+                        <p class="impact-calc" id="calc_11">12.500.000 trabajadores × $27.500</p>
+                    </div>
+                </article>
+
+<article class="retroceso-card">
+                    <span class="card-num">12</span>
+                    <h3 class="card-title">Costas Limitadas 25%</h3>
+                    <p class="card-art">Artículo 277</p>
+                    <p class="card-desc">
+                        Tope 25% monto sentencia para costas. Reduce calidad de representación disponible.
+                    </p>
+                    <div class="card-impact">
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Trabajadores afectados (cantidad):
+                                </label>
+                                <input type="number" id="trabajadores_12" value="1500000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.9rem; color: var(--text-gray); margin-bottom: 0.5rem;">
+                                    Pérdida promedio por trabajador ($ anual):
+                                </label>
+                                <input type="number" id="perdida_12" value="825000" 
+                                       style="width: 100%; padding: 0.75rem; border: 2px solid var(--border); border-radius: 4px; background: var(--bg-dark); color: var(--text-light); font-size: 1rem;">
+                            </div>
+                        </div>
+                        <span class="impact-label">Transferencia anual:</span>
+                        <p class="impact-value" id="total_12">$1.24 billones</p>
+                        <p class="impact-calc" id="calc_12">1.500.000 trabajadores × $825.000</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- Contexto Interseccional -->
+        <section class="section contexto-section">
+            <div class="container">
+                <h2 class="section-title">Una Reforma con Impacto Desigual</h2>
+                
+                <p class="lead-text">
+                    Bajo el discurso de "modernización", el proyecto redistribuye masivamente recursos desde trabajadores hacia empleadores. 
+                    Esta transferencia <strong>profundiza desigualdades estructurales</strong> existentes.
+                </p>
+                
+                <div class="impacto-box">
+                    <h3 class="impacto-title">Impacto Diferencial por Sector</h3>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon">👩</div>
+                        <div class="impacto-content">
+                            <strong>Mujeres y disidencias</strong>
+                            <p>Concentradas en sectores precarizados. La eliminación de presunción laboral y reducción de indemnizaciones las expone al fraude laboral. El fraccionamiento de vacaciones impacta a quienes sostienen tareas de cuidado.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon">🧑🏽</div>
+                        <div class="impacto-content">
+                            <strong>Trabajadores racializados y migrantes</strong>
+                            <p>Relegados a empleos tercerizados, la limitación de solidaridad los deja sin respaldo. La eliminación del preaviso facilita rotación sin costos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon">♿</div>
+                        <div class="impacto-content">
+                            <strong>Personas con discapacidad</strong>
+                            <p>El Art. 212 permite reducir salarios por "incapacidad parcial", legitimando discriminación salarial. Pierden hasta 40% sin compensación.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon">👴</div>
+                        <div class="impacto-content">
+                            <strong>Trabajadores mayores de 45 años</strong>
+                            <p>El tope indemnizatorio castiga la antigüedad, reduciendo hasta 50% las compensaciones. Mayor dificultad para reinserción.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon">🏘️</div>
+                        <div class="impacto-content">
+                            <strong>Economías regionales</strong>
+                            <p>Las barreras de acceso a justicia (pluspetición, topes a honorarios) hacen imposible reclamar derechos. Efecto silenciador.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="impacto-card">
+                        <div class="impacto-icon">🔧</div>
+                        <div class="impacto-content">
+                            <strong>Trabajadores tercerizados</strong>
+                            <p>La eliminación de presunción laboral y solidaridad consolida su desprotección. Empresas se desentienden de responsabilidades.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conclusion-box">
+                    <p>
+                        <strong>La "modernización" no es neutral:</strong> redistribuye poder desde sectores vulnerables hacia concentrados. 
+                        Cada medida amplifica desigualdades de género, raza, clase, capacidad y territorio.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Redistribución -->
+        <section class="section redistribucion-section">
+            <div class="container">
+                <h2 class="section-title">¿Y Si Redistribuimos?</h2>
+                
+                <div class="pregunta-box">
+                    <p class="pregunta-intro">Si el objetivo es reducir "costo laboral" para crear empleo,</p>
+                    <p class="pregunta-main">¿Cuántos puestos deberían crearse para no perjudicar a trabajadores?</p>
+                </div>
+
+                <div class="highlight-box">
+                    <p class="highlight-label">Ahorro para Empresarios</p>
+                    <p class="highlight-value">$21 billones/año</p>
+                    <p class="highlight-text">
+                        Para neutralidad, debería convertirse íntegramente en salarios de nuevos empleados.
+                    </p>
+                </div>
+
+                <div class="scenario-grid">
+                    <div class="scenario-card">
+                        <p class="scenario-label">Con salario mínimo</p>
+                        <p class="scenario-value">6.600.000</p>
+                        <p class="scenario-sub">empleos necesarios</p>
+                        <p class="scenario-impact">+53% empleos</p>
+                    </div>
+
+                    <div class="scenario-card">
+                        <p class="scenario-label">Con salario promedio</p>
+                        <p class="scenario-value">2.200.000</p>
+                        <p class="scenario-sub">empleos necesarios</p>
+                        <p class="scenario-impact">+18% empleos</p>
+                    </div>
+
+                    <div class="scenario-card scenario-alert">
+                        <p class="scenario-label">Contexto real</p>
+                        <p class="scenario-value">RECESIÓN</p>
+                        <p class="scenario-sub">Empleo -1.5%</p>
+                        <p class="scenario-impact">Imposible</p>
+                    </div>
+                </div>
+
+                <div class="alert-box">
+                    <h3 class="alert-title">⚠️ Viabilidad</h3>
+                    <div class="viability-item">
+                        <span>Crecimiento histórico anual:</span>
+                        <strong>2.5%</strong>
+                    </div>
+                    <div class="viability-item">
+                        <span>Necesario para neutralidad:</span>
+                        <strong>18%</strong>
+                    </div>
+                    <div class="viability-item">
+                        <span>Relación necesario vs histórico:</span>
+                        <strong class="big">7.2x más</strong>
+                    </div>
+                    <p class="alert-footer">Se necesita crear en 1 año lo que históricamente se crea en 7 años</p>
+                </div>
+
+                <div class="distribution-box">
+                    <h3>📊 Destino Real del Ahorro</h3>
+                    <p>Sin redistribución obligatoria, históricamente:</p>
+                    
+                    <div class="bar-item">
+                        <span class="bar-label">Dividendos</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 40%">40%</div>
+                        </div>
+                        <span class="bar-amount">$8.4B</span>
+                    </div>
+
+                    <div class="bar-item">
+                        <span class="bar-label">Nuevas contrataciones</span>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-accent" style="width: 25%">25%</div>
+                        </div>
+                        <span class="bar-amount">$5.3B</span>
+                    </div>
+
+                    <div class="bar-item">
+                        <span class="bar-label">Inversión</span>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-blue" style="width: 20%">20%</div>
+                        </div>
+                        <span class="bar-amount">$4.2B</span>
+                    </div>
+
+                    <div class="bar-item">
+                        <span class="bar-label">Reducción precios</span>
+                        <div class="bar-container">
+                            <div class="bar-fill bar-gray" style="width: 15%">15%</div>
+                        </div>
+                        <span class="bar-amount">$3.2B</span>
+                    </div>
+
+                    <p class="distribution-conclusion">
+                        <strong>Resultado:</strong> Incluso optimista (25% a empleos), solo ~550.000 puestos, 
+                        apenas 25% de lo necesario.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section class="section contacto-section">
+            <div class="container">
+                <div class="contacto-box">
+                    <h3>💬 Comentarios Colaborativos</h3>
+                    <p>
+                        Este documento usa <strong>Hypothesis</strong> para comentarios (versión desktop/tablet). 
+                        Seleccioná texto para anotar y participar del debate.
+                    </p>
+                </div>
+
+                <div class="contacto-box">
+                    <h3>📧 Contacto</h3>
+                    <p>
+                        Análisis elaborado como ejercicio de transparencia. 
+                        Correcciones constructivas son bienvenidas para mejorar calidad.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Foto de perfil -->
+                <div class="profile-photo">
+                    <img src="agd-cnba-logo.png" alt="AGD-CNBA"
+                    sizes="width = 10vw" />
+                </div>
+
+                <!-- Información de contacto -->
+                <div class="contact-info">
+                    <h3>AGD-CNBA</h3>
+                    <p class="bio">
+                        Miembro de  <a href="https://agduba.org.ar/" target="_blank" style="color: var(--accent);">AGD - UBA</a>
+                    </p>
+
+                    <!-- Redes sociales -->
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@AGD-CNBA" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                            youTube.com/@AGD-CNBA
+                        </a>
+                        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/agd.cnba" target="_blank">
+                        </a>
+                        <a href="https://github.com/AGD-CNBA" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="mailto:uba.agd@gmail.com">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            Contacto
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Nota final -->
+                <div class="footer-note">
+                    <p><strong>Serie: Ley de Financiamiento Universitario</strong></p>
+                    <p style="margin-top: 0.5rem;">
+                        <a href="analisis-transferencia-trabajadores.html" target="_blank">Parte I: Análisis de Retrocesos</a> ·
+                        <a href="analisis-costo-fiscal-v6.html" target="_blank">Parte II: Análisis del Costo Fiscal</a>
+                    </p>
+                    <p style="margin-top: 1rem;">Análisis elaborado como ejercicio de transparencia y debate público</p>
+                    <p style="margin-top: 0.5rem;">Documentos colaborativos abiertos a correcciones y mejoras</p>
+                    <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Marzo 2026</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-title">Análisis Independiente - Marzo 2026</p>
+        <p>
+            Basado en Proyecto de Ley de Modernización Laboral<br>
+            Fuentes públicas y verificables
+        </p>
+        <p class="footer-conclusion">
+            <strong>Conclusión:</strong> Sin redistribución obligatoria verificable,
+            la reforma transfiere $21B anuales sin garantía de empleo equivalente.
+        </p>
+    </footer>
+
+    <!-- Hypothesis solo en desktop -->
+    <script>
+        // Función para formatear números
+        function formatearNumero(num) {
+            return new Intl.NumberFormat('es-AR').format(Math.round(num));
+        }
+
+        function formatearBillones(num) {
+            if (num >= 1000000000000) {
+                return '$' + (num / 1000000000000).toFixed(2) + ' billones';
+            } else if (num >= 1000000000) {
+                return '$' + (num / 1000000000).toFixed(3) + ' billones';
+            } else {
+                return '$' + formatearNumero(num);
+            }
+        }
+
+        // Calcular total de cada medida
+        function calcularMedida(numero) {
+            const trabajadores = parseFloat(document.getElementById(`trabajadores_${numero}`).value) || 0;
+            const perdida = parseFloat(document.getElementById(`perdida_${numero}`).value) || 0;
+            const total = trabajadores * perdida;
+            
+            document.getElementById(`total_${numero}`).textContent = formatearBillones(total);
+            document.getElementById(`calc_${numero}`).textContent = 
+                formatearNumero(trabajadores) + ' trabajadores × $' + formatearNumero(perdida);
+            
+            calcularTotalGeneral();
+        }
+
+        // Calcular total general (suma de todas las medidas)
+        function calcularTotalGeneral() {
+            let totalGeneral = 0;
+            
+            for (let i = 1; i <= 12; i++) {
+                const numStr = i.toString().padStart(2, '0');
+                const trabajadores = parseFloat(document.getElementById(`trabajadores_${numStr}`).value) || 0;
+                const perdida = parseFloat(document.getElementById(`perdida_${numStr}`).value) || 0;
+                totalGeneral += trabajadores * perdida;
+            }
+            
+            document.querySelector('.metric-value').textContent = formatearBillones(totalGeneral) + '/año';
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            for (let i = 1; i <= 12; i++) {
+                const numStr = i.toString().padStart(2, '0');
+                document.getElementById(`trabajadores_${numStr}`).addEventListener('input', () => calcularMedida(numStr));
+                document.getElementById(`perdida_${numStr}`).addEventListener('input', () => calcularMedida(numStr));
+            }
+            
+            // Calcular valores iniciales
+            for (let i = 1; i <= 12; i++) {
+                calcularMedida(i.toString().padStart(2, '0'));
+            }
+        });
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

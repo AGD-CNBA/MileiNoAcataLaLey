@@ -1,0 +1,39 @@
+# https://git-scm.com/docs/gitignore
+#
+# ignoramos todos los que no empiezan con _, incluyendo __*
+# las excepciones son README.md y README.d/
+#
+._*
+
+# Onsidian e IDES
+.obsidian
+Clippings
+#e IDES
+.idea
+#algo para M$ VScode...
+
+# Calibre
+
+metadata.db
+metadata_db_prefs_backup.json
+**/.calnotes/
+**/*.sdr # libro subrayado / markup con Sidecar
+
+# macos
+.DS_Store
+
+
+# Syncthing
+*.sync-conflict-*
+
+# jupyter lab
+##   git rm -r .ipynb_checkpoints/
+.ipynb_checkpoints
+**/.ipynb_checkpoints
+**/.virtual_documents
+
+# IPython
+**/profile_default/
+ipython_config.py
+
+# Remove previous ipynb_checkpoints
