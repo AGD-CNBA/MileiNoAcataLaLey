@@ -1001,9 +1001,16 @@
         </section>
     </div>
 
+
     <footer>
         <div class="container">
             <div class="footer-content">
+                                <!-- Foto de perfil -->
+                <div class="contact-info">
+                    <img src="qr-ghpages.png" alt="QR"
+                    sizes="width = 10vw" />
+                </div>
+
                 <!-- Foto de perfil -->
                 <div class="profile-photo">
                     <img src="agd-cnba-logo.png" alt="AGD-CNBA"
@@ -1070,168 +1077,12 @@
     </footer>
 
     <script>
-        // Valores originales para resetear
-        const VALORES_ORIGINALES = {
-            pbi: 650.8,
-            costo_contrib: 0.50,
-            costo_fal: 0.00,
-            costo_ganancias_corp: 0.20,
-            costo_internos: 0.10,
-            costo_rimi: 0.03,
-            costo_blanqueo: 0.00,
-            transferencias: 21,
-            salario_mensual: 0.88,
-            tasa_contrib: 10,
-            tasa_aportes: 17,
-            tasa_iva: 6.3,
-            tasa_ganancias: 4.5,
-            ratio_empleo: 25
-        };
-
-        function formatearNumero(num) {
-            return new Intl.NumberFormat('es-AR').format(Math.round(num));
-        }
-
-        function formatearBillones(num) {
-            return '$' + num.toFixed(2) + ' billones';
-        }
-
-        function actualizarCostoTotal() {
-            const costo_contrib = parseFloat(document.getElementById('costo_contrib').value) || 0;
-            const costo_fal = parseFloat(document.getElementById('costo_fal').value) || 0;
-            const costo_ganancias_corp = parseFloat(document.getElementById('costo_ganancias_corp').value) || 0;
-            const costo_internos = parseFloat(document.getElementById('costo_internos').value) || 0;
-            const costo_rimi = parseFloat(document.getElementById('costo_rimi').value) || 0;
-            const costo_blanqueo = parseFloat(document.getElementById('costo_blanqueo').value) || 0;
-            
-            const total = costo_contrib + costo_fal + costo_ganancias_corp + costo_internos + costo_rimi + costo_blanqueo;
-            document.getElementById('costo_total_display').textContent = total.toFixed(2) + '% PBI';
-            return total;
-        }
-
-        function resetearOriginal() {
-            Object.keys(VALORES_ORIGINALES).forEach(key => {
-                const el = document.getElementById(key);
-                if (el) el.value = VALORES_ORIGINALES[key];
-            });
-            actualizarCostoTotal();
-            calcular();
-        }
-
-        function calcular() {
-            // Obtener valores
-            const pbi = parseFloat(document.getElementById('pbi').value);
-            const costo_pct = actualizarCostoTotal();
-            const transferencias = parseFloat(document.getElementById('transferencias').value);
-            const salario_mensual = parseFloat(document.getElementById('salario_mensual').value);
-            const tasa_contrib = parseFloat(document.getElementById('tasa_contrib').value);
-            const tasa_aportes = parseFloat(document.getElementById('tasa_aportes').value);
-            const tasa_iva = parseFloat(document.getElementById('tasa_iva').value);
-            const tasa_ganancias = parseFloat(document.getElementById('tasa_ganancias').value);
-            const ratio_empleo = parseFloat(document.getElementById('ratio_empleo').value);
-
-            // Obtener costos individuales para el desglose
-            const costo_contrib_pct = parseFloat(document.getElementById('costo_contrib').value) || 0;
-            const costo_fal_pct = parseFloat(document.getElementById('costo_fal').value) || 0;
-            const costo_ganancias_corp_pct = parseFloat(document.getElementById('costo_ganancias_corp').value) || 0;
-            const costo_internos_pct = parseFloat(document.getElementById('costo_internos').value) || 0;
-            const costo_rimi_pct = parseFloat(document.getElementById('costo_rimi').value) || 0;
-            const costo_blanqueo_pct = parseFloat(document.getElementById('costo_blanqueo').value) || 0;
-
-            // Cálculos
-            const costo_bruto = pbi * (costo_pct / 100);
-            const salario_anual = salario_mensual * 12;
-            const empleos_potenciales = (costo_bruto * 1000000) / salario_anual;
-            
-            const masa_salarial = (empleos_potenciales * salario_anual) / 1000000;
-            const recaud_contrib = masa_salarial * (tasa_contrib / 100);
-            const recaud_aportes = masa_salarial * (tasa_aportes / 100);
-            const recaud_iva = masa_salarial * (tasa_iva / 100);
-            const recaud_ganancias = masa_salarial * (tasa_ganancias / 100);
-            const recaudacion_optimista = recaud_contrib + recaud_aportes + recaud_iva + recaud_ganancias;
-            
-            const costo_neto_optimista = costo_bruto - recaudacion_optimista;
-            const pct_recuperado = (recaudacion_optimista / costo_bruto) * 100;
-            
-            const empleos_realistas = empleos_potenciales * (ratio_empleo / 100);
-            const recaudacion_realista = recaudacion_optimista * (ratio_empleo / 100);
-            const costo_neto_realista = costo_bruto - recaudacion_realista;
-            
-            const ganancia_empresas = transferencias - costo_neto_realista;
-
-            // Mostrar fórmulas con desglose
-            document.getElementById('formula1').innerHTML = `
-                <div style="margin-bottom: 0.5rem;"><strong>Desglose por medida:</strong></div>
-                <div style="display: grid; grid-template-columns: 1fr auto; gap: 0.25rem; font-size: 0.9em;">
-                    <span>1. Reducción Contribuciones:</span><span>${(pbi * costo_contrib_pct / 100).toFixed(2)} billones (${costo_contrib_pct}%)</span>
-                    <span>2. FAL:</span><span>${(pbi * costo_fal_pct / 100).toFixed(2)} billones (${costo_fal_pct}%)</span>
-                    <span>3. Ganancias Corporativo:</span><span>${(pbi * costo_ganancias_corp_pct / 100).toFixed(2)} billones (${costo_ganancias_corp_pct}%)</span>
-                    <span>4. Impuestos Internos:</span><span>${(pbi * costo_internos_pct / 100).toFixed(2)} billones (${costo_internos_pct}%)</span>
-                    <span>5. RIMI:</span><span>${(pbi * costo_rimi_pct / 100).toFixed(2)} billones (${costo_rimi_pct}%)</span>
-                    <span>6. Blanqueo:</span><span>${(pbi * costo_blanqueo_pct / 100).toFixed(2)} billones (${costo_blanqueo_pct}%)</span>
-                </div>
-                <div style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border);"><strong>TOTAL: ${costo_bruto.toFixed(2)} billones (${costo_pct.toFixed(2)}% del PBI)</strong></div>
-            `;
-
-            document.getElementById('formula2').textContent = 
-                `Empleos = Costo × 1.000.000 / Salario anual = ${costo_bruto.toFixed(2)} × 1.000.000 / ${salario_anual.toFixed(2)} = ${formatearNumero(empleos_potenciales)}`;
-
-            document.getElementById('formulas_recaudacion').innerHTML = `
-                <div class="formula">Contribuciones = ${masa_salarial.toFixed(2)} × ${tasa_contrib}% = ${recaud_contrib.toFixed(2)} billones</div>
-                <div class="formula">Aportes = ${masa_salarial.toFixed(2)} × ${tasa_aportes}% = ${recaud_aportes.toFixed(2)} billones</div>
-                <div class="formula">IVA = ${masa_salarial.toFixed(2)} × ${tasa_iva}% = ${recaud_iva.toFixed(2)} billones</div>
-                <div class="formula">Ganancias = ${masa_salarial.toFixed(2)} × ${tasa_ganancias}% = ${recaud_ganancias.toFixed(2)} billones</div>
-            `;
-
-            document.getElementById('formula_realista').textContent = 
-                `Empleos reales = ${formatearNumero(empleos_potenciales)} × ${ratio_empleo}% = ${formatearNumero(empleos_realistas)}`;
-
-            // Mostrar resultados
-            document.getElementById('costo_bruto').textContent = formatearBillones(costo_bruto);
-            document.getElementById('empleos_potenciales').textContent = formatearNumero(empleos_potenciales);
-            document.getElementById('recaudacion_optimista').textContent = formatearBillones(recaudacion_optimista);
-            document.getElementById('empleos_realistas').textContent = formatearNumero(empleos_realistas);
-            document.getElementById('recaudacion_realista').textContent = formatearBillones(recaudacion_realista);
-
-            // Result boxes
-            document.getElementById('res_costo_bruto').textContent = formatearBillones(costo_bruto);
-            document.getElementById('res_recaud_opt').textContent = formatearBillones(recaudacion_optimista);
-            document.getElementById('res_costo_neto_opt').textContent = formatearBillones(costo_neto_optimista);
-            document.getElementById('res_pct_recup').textContent = pct_recuperado.toFixed(1) + '%';
-
-            document.getElementById('res_emp_real').textContent = formatearNumero(empleos_realistas);
-            document.getElementById('res_recaud_real').textContent = formatearBillones(recaudacion_realista);
-            document.getElementById('res_costo_neto_real').textContent = formatearBillones(costo_neto_realista);
-
-            // Stats
-            document.getElementById('stat_transf').textContent = formatearBillones(transferencias);
-            document.getElementById('stat_inversion').textContent = formatearBillones(costo_neto_realista);
-            document.getElementById('stat_ganancia').textContent = formatearBillones(ganancia_empresas);
-
-            // Conclusiones
-            document.getElementById('concl_inversion').textContent = formatearBillones(costo_neto_optimista);
-            document.getElementById('concl_inversion_real').textContent = formatearBillones(costo_neto_realista);
-
-            // Mostrar secciones
-            document.getElementById('resultados').style.display = 'block';
-            document.getElementById('conclusiones').style.display = 'block';
-            document.getElementById('metodologia').style.display = 'block';
-        }
-
-        // Event listeners para actualizar el total en tiempo real
-        document.addEventListener('DOMContentLoaded', function() {
-            const costInputs = ['costo_contrib', 'costo_fal', 'costo_ganancias_corp', 'costo_internos', 'costo_rimi', 'costo_blanqueo'];
-            costInputs.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    el.addEventListener('input', actualizarCostoTotal);
-                }
-            });
-            
-            // Calcular automáticamente al cargar
-            actualizarCostoTotal();
-            calcular();
+        // Smooth scroll para el botón
+        document.querySelector('.scroll-btn').addEventListener('click', () => {
+            document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
+
+
 </body>
 </html>
